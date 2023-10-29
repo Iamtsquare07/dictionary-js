@@ -4,8 +4,8 @@ const submit = document.querySelector("#submit");
 const responseField = document.querySelector("#responseField");
 let meaning;
 
-const fetchMeaning = async (wordQuery) => {
-  const endpoint = url + wordQuery;
+const fetchMeaning = async (query) => {
+  const endpoint = url + query;
   try {
     const response = await fetch(endpoint);
     if (response.ok) {
@@ -20,8 +20,8 @@ const fetchMeaning = async (wordQuery) => {
 };
 
 async function displayDictionary(call) {
-  const wordQuery = inputField.value;
-  meaning = await fetchMeaning(wordQuery);
+  const query = inputField.value;
+  meaning = await fetchMeaning(query);
 
   if (meaning) {
     renderResponse(meaning);
@@ -63,7 +63,6 @@ const renderResponse = (res) => {
     return;
   }
 
-  // Get the definitions for the word "knowledge"
   const meanings = res[0].meanings;
   const word = res[0].word;
   const phonetics = res[0].phonetics[1];
@@ -77,7 +76,7 @@ const renderResponse = (res) => {
     const defHeading = document.createElement("h4");
     defHeading.textContent = `Definitions for the word "${word}":`;
     defList.appendChild(defHeading);
-    let displayedDefinitions = 0; // Track the number of displayed definitions
+    let displayedDefinitions = 0;
     meanings[0].definitions.forEach((definitionObj, defIndex) => {
       if (displayedDefinitions < 5) {
         const definition = definitionObj.definition;
