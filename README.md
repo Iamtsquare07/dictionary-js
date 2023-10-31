@@ -1,5 +1,5 @@
 # Dictionary with Js v1.0.0
 
-JavaScript dictionary that retrieves meanings, pronunciations, and parts of speech. The data is sourced from the fantastic Free Dictionary API. 
+A dictionary app that retrieves meanings, pronunciations, and parts of speech. The data is sourced from the fantastic Free Dictionary API. 
 
 Preview on: https://codepen.io/iamtsquare07/full/xxmBPbR
